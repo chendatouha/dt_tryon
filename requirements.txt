@@ -1,0 +1,6 @@
+omegaconf>=2.3.0
+numpy>=1.26.4
+accelerate>=0.28.0
+opencv_python>=4.9.0.80
+diffusers>=0.27.2
+transformers>=4.39.1
