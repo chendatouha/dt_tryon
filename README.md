@@ -1,16 +1,20 @@
 # DT_TRYON: Using diffusion models to solve the problem of image generation in the fashion field
 
-![sample1](assets/00001.jpg)
-![sample1](assets/00002.jpg)
-![sample1](assets/00003.jpg)
-[more results](https://pan.baidu.com/s/1VQM3Ymyw92qRVs8RWrB_qg?pwd=5556)
 ## Introduction
 - pros
   - Minimalist project structure. Only a few files included
   - Continuously updating new features in the future, fully anticipating
   - Follow industry trends and reproduce hot papers
 ## News
+**April 2nd, 2024**
+!![4.png](assets%2F4.png)
+- Release TryOn Demo
+- 
 **March 26th, 2024**
+![sample1](assets/00001.jpg)
+![sample1](assets/00002.jpg)
+![sample1](assets/00003.jpg)
+[more results](https://pan.baidu.com/s/1VQM3Ymyw92qRVs8RWrB_qg?pwd=5556)
 - Release TryOn
   - including inference code and train code
   - provide pretrained model files
