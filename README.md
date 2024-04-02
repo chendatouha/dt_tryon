@@ -7,14 +7,16 @@
   - Follow industry trends and reproduce hot papers
 ## News
 **April 2nd, 2024**
-![4.png](assets%2F4.png)
 - Release TryOn Demo
+  - ![4.png](assets%2F4.png)
+
+
 **March 26th, 2024**
-![sample1](assets/00001.jpg)
-![sample1](assets/00002.jpg)
-![sample1](assets/00003.jpg)
-[more results](https://pan.baidu.com/s/1VQM3Ymyw92qRVs8RWrB_qg?pwd=5556)
 - Release TryOn
+  - ![sample1](assets/00001.jpg)
+  - ![sample1](assets/00002.jpg)
+  - ![sample1](assets/00003.jpg)
+  - [more results](https://pan.baidu.com/s/1VQM3Ymyw92qRVs8RWrB_qg?pwd=5556)
   - including inference code and train code
   - provide pretrained model files
   - provide dataset
