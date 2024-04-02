@@ -7,9 +7,8 @@
   - Follow industry trends and reproduce hot papers
 ## News
 **April 2nd, 2024**
-!![4.png](assets%2F4.png)
+![4.png](assets%2F4.png)
 - Release TryOn Demo
-- 
 **March 26th, 2024**
 ![sample1](assets/00001.jpg)
 ![sample1](assets/00002.jpg)
