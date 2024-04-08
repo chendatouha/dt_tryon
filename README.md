@@ -63,3 +63,4 @@
 - download pretrained models and datasets from [Baidu](https://pan.baidu.com/s/1VQM3Ymyw92qRVs8RWrB_qg?pwd=5556)
 - place model files into checkpoints
 - place dataset to your directory
+- change directory path in config files
