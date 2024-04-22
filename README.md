@@ -6,6 +6,19 @@
   - Continuously updating new features in the future, fully anticipating
   - Follow industry trends and reproduce hot papers
 ## News
+**April 22th, 2024**
+- Release animation step1 train scripts
+- download datasets from [Baidu](https://pan.baidu.com/s/1VQM3Ymyw92qRVs8RWrB_qg?pwd=5556)
+- place downloaded files to your directory
+- change your directory in config file
+- run following cmd
+- I only release partial data, so you need to prepare your data as i do
+- ## Train
+  ```bash
+  python -m accelerate.commands.launch --num_processes=2 train_script.py -c configs/train/animate_step1.yaml
+  ```
+
+
 **April 8th, 2024**
 - Release animation
 - download pretrained models and datasets from [Baidu](https://pan.baidu.com/s/1VQM3Ymyw92qRVs8RWrB_qg?pwd=5556)

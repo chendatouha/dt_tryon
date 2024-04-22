@@ -1,0 +1,75 @@
+#sd_folder: &sd_folder ../pretrained_models/stable_diffusion/ByteDance_sd2.1-base-zsnr-laionaes5
+sd_folder: &sd_folder ByteDance/sd2.1-base-zsnr-laionaes5
+devices: '2,3'
+train_cfg:
+  mixed_precision: bf16
+  gradient_accumulation_steps: 4
+  use_8bit_adam: false
+  learning_rate: 2.0e-05
+  num_train_epochs: 10
+  log_batch_frequency: 150
+  log_epoch_frequency: 1
+  save_batch_frequency: 1000
+  train_batch_size: &train_batch_size 8
+  val_batch_size: &val_batch_size 2
+  gradient_checkpointing: true
+  scale_lr: false
+  max_grad_norm: 1.0
+  log_dir: ${logdir:''}
+  ucg_prob: 0.2
+  log_image_cfg:
+    steps: 50
+    classifier_free_scale: 4.0
+    eta: 1
+
+trainer:
+  target: trainers.animate_trainer_step1.AnimateTrainer
+  params:
+    vae_cfg:
+      pretrained_model: *sd_folder
+      subfolder: vae
+    unet_cfg:
+      pretrained_model: *sd_folder
+      subfolder: unet
+      in_channels: 8
+    ref_net_cfg:
+      pretrained_model: *sd_folder
+      subfolder: unet
+      in_channels: 4
+    scheduler_cfg:
+      target: diffusers.DDIMScheduler
+      params:
+        num_train_timesteps: 1000
+        beta_start: 0.00085
+        beta_end: 0.012
+        beta_schedule: scaled_linear
+        clip_sample: false
+        set_alpha_to_one: false
+        steps_offset: 1
+        prediction_type: v_prediction
+        timestep_spacing: trailing
+        rescale_betas_zero_snr: true
+data:
+  trainset:
+    target: my_datasets.animate_step1_dataset.AnimateStep1
+    params:
+      dataset_dir: 'path/to/dataset'
+      sample_file: 'train.txt'
+      background_color: 246
+      size: [ 768, 1024 ]
+      ref_size: [ 768, 1024 ]
+#      keep_num: 30
+    workers: 16
+    batch_size: *train_batch_size
+  valset:
+    target: my_datasets.animate_step1_dataset.AnimateStep1
+    params:
+      dataset_dir: 'path/to/dataset'
+      sample_file: 'test.txt'
+      background_color: 246
+      size: [ 768, 1024 ]
+      ref_size: [ 768, 1024 ]
+    workers: 8
+    batch_size: *val_batch_size
+
+

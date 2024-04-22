@@ -4,3 +4,5 @@ accelerate>=0.28.0
 opencv_python>=4.9.0.80
 diffusers>=0.27.2
 transformers>=4.39.1
+deepspeed
+torchvision
