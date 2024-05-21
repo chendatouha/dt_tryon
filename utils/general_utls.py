@@ -31,9 +31,10 @@ def get_obj_from_str(string, reload=False):
         importlib.reload(module_imp)
     return getattr(importlib.import_module(module, package=None), cls)
 
+def log_captions(captions, file_name):
+    with open(file_name, 'w', encoding='utf8') as fp:
+        for idx, c in enumerate(captions):
+            fp.write('{}: {}\n\n'.format(idx, c))
 
 if __name__ == '__main__':
-    txt = ['ABC']
-    wh = (256, 256)
-    imgs = log_txt_as_img(wh, txt)
-    imgs[0].save('txt.jpg')
+    pass

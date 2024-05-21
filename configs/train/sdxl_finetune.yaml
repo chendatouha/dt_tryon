@@ -1,0 +1,81 @@
+sd_folder: &sd_folder 'stabilityai/stable-diffusion-xl-base-1.0'
+# change here according to your device
+devices: '0,1'
+train_cfg:
+  mixed_precision: bf16
+  gradient_accumulation_steps: 1
+  use_8bit_adam: false
+  learning_rate: 2.0e-05
+  num_train_epochs: 10
+  log_batch_frequency: 200
+  log_epoch_frequency: 1
+  save_batch_frequency: 1000
+  train_batch_size: &train_batch_size 6
+  val_batch_size: &val_batch_size 2
+  gradient_checkpointing: true
+  scale_lr: false
+  max_grad_norm: 1.0
+  log_dir: ${logdir:''}
+  ucg_prob: 0.2
+  log_image_cfg:
+    steps: 30
+    classifier_free_scale: 9.0
+  allow_tf32: True
+  noise_offset: 0.05
+  snr_gamma: 5.0
+  warmup_steps: 500
+  use_ema: true
+  ema_decay: 0.9
+
+trainer:
+  target: trainers.sdxl_finetune.SDXLTrainer
+  params:
+    tokenizer1_cfg:
+      pretrained_model: *sd_folder
+      subfolder: tokenizer
+    tokenizer2_cfg:
+      pretrained_model: *sd_folder
+      subfolder: tokenizer_2
+    vae_cfg:
+      pretrained_model: *sd_folder
+      subfolder: vae
+    unet_cfg:
+      pretrained_model: *sd_folder
+      subfolder: unet
+    scheduler_cfg:
+      target: diffusers.DDPMScheduler
+      params:
+        "beta_end": 0.012
+        "beta_schedule": "scaled_linear"
+        "beta_start": 0.00085
+        "clip_sample": false
+        "num_train_timesteps": 1000
+        "prediction_type": "epsilon"
+        "sample_max_value": 1.0
+        "steps_offset": 1
+        "timestep_spacing": "leading"
+        "trained_betas": null
+    text_encoder1_cfg:
+      pretrained_model: *sd_folder
+      subfolder: text_encoder
+    text_encoder2_cfg:
+      pretrained_model: *sd_folder
+      subfolder: text_encoder_2
+data:
+  trainset:
+    target: my_datasets.sd_finetune_dataset.SDFineTune
+    params:
+      dataset_dir: 'path/to/dataset_root'
+      sample_file: 'fine_tune.txt'
+      size: [ 960, 1280 ]
+      repeat_len: 200000
+    workers: 16
+    batch_size: *train_batch_size
+  valset:
+    target: my_datasets.base_dataset.DummyDataset
+    params:
+      dataset_dir: 'dummy'
+    workers: 1
+    batch_size: 1
+
+

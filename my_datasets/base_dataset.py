@@ -63,3 +63,13 @@ class BaseDataset(Dataset):
         img = TF.to_tensor(img)
         img = (img - self.mean) / self.std
         return img
+
+class DummyDataset(BaseDataset):
+    def __init__(self, dataset_dir):
+        super().__init__(dataset_dir, sample_file='dummy')
+
+    def __getitem__(self, idx):
+        return self.samples[idx]
+
+    def load_sample_file(self, file_path):
+        return ['dummy data'] * 1000

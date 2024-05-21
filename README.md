@@ -6,6 +6,17 @@
   - Continuously updating new features in the future, fully anticipating
   - Follow industry trends and reproduce hot papers
 ## News
+
+**May 21st, 2024**
+- Release SDXL finetune scripts & sample data
+- You can find running command in 'command' file
+- Some key points when you finetune your model
+  - you need prepare Very High Quality data according your project needs
+  - 2k-4k pictures will be enough
+  - train your model through many epoch. I get the best result on 100 epoch
+  - high resolution is very important. I use 960*1280 here
+  - the quality of result from finetune model is far better than the ordinary model
+  
 **April 22th, 2024**
 - Release animation step1 train scripts
 - download datasets from [Baidu](https://pan.baidu.com/s/1VQM3Ymyw92qRVs8RWrB_qg?pwd=5556)
