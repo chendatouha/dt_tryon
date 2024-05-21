@@ -9,6 +9,7 @@
 
 **May 21st, 2024**
 - Release SDXL finetune scripts & sample data
+- download datasets from [Baidu](https://pan.baidu.com/s/1VQM3Ymyw92qRVs8RWrB_qg?pwd=5556)
 - You can find running command in 'command' file
 - Some key points when you finetune your model
   - you need prepare Very High Quality data according your project needs
