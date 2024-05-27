@@ -17,6 +17,8 @@
   - train your model through many epoch. I get the best result on 100 epoch
   - high resolution is very important. I use 960*1280 here
   - the quality of result from finetune model is far better than the ordinary model
+- result sample [960*1280]
+- ![.jpg](assets%2Fsdxl_finetune_sample.jpg)
   
 **April 22th, 2024**
 - Release animation step1 train scripts
@@ -29,8 +31,6 @@
   ```bash
   python -m accelerate.commands.launch --num_processes=2 train_script.py -c configs/train/animate_step1.yaml
   ```
-- ![sdxl_finetune_sample.jpg](assets%2Fsdxl_finetune_sample.jpg)
-
 **April 8th, 2024**
 - Release animation
 - download pretrained models and datasets from [Baidu](https://pan.baidu.com/s/1VQM3Ymyw92qRVs8RWrB_qg?pwd=5556)
