@@ -29,7 +29,7 @@
   ```bash
   python -m accelerate.commands.launch --num_processes=2 train_script.py -c configs/train/animate_step1.yaml
   ```
-
+- ![sdxl_finetune_sample.jpg](assets%2Fsdxl_finetune_sample.jpg)
 
 **April 8th, 2024**
 - Release animation
